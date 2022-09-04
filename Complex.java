@@ -35,6 +35,8 @@ public class Complex {
         return new Complex(resultReal, resultIm);
     }
 
-    public static void sub(Complex a, Complex b) {
+    public Complex sub(Complex other) {
+        Complex result = this.add(other.mult(-1));
+        return result;
     }
 }
