@@ -1,13 +1,9 @@
 public class Main {
     
     public static void main(String[] args) {
-        Complex nb = new Complex();
-        nb.real = 5;
-        nb.im = 1;
+        Complex nb = new Complex(5, 1);
 
-        Complex nb2 = new Complex();
-        nb2.real = -22;
-        nb2.im = -1;
+        Complex nb2 = new Complex(-22, -1);
 
         Complex nb3 = nb.mult(nb2);
         Complex nb4 = nb.mult(6);
