@@ -1,5 +1,4 @@
 import java.lang.Math;
-// I will do a "cast to complex" method soon
 
 public class Complex {
 
@@ -11,6 +10,11 @@ public class Complex {
         this.real = x;
         this.im = y;
         this.modulus = Math.pow(Math.pow(this.real, 2) + Math.pow(this.im, 2), 0.5);
+    }
+
+    // pretty useless now that I think about it
+    public static Complex castToComplex(double x) {
+        return new Complex(x, 0);
     }
 
     @Override
@@ -29,10 +33,8 @@ public class Complex {
         return new Complex(resultReal, resultIm);
     }
 
-    public Complex mult(int other) {
-        double resultReal = this.real * other;
-        double resultIm = this.im * other;
-        return new Complex(resultReal, resultIm);
+    public Complex mult(double other) {
+        return new Complex(this.real * other, this.im * other);
     }
     public Complex mult(Complex other) {
         double resultReal = this.real * other.real - this.im * other.im;
@@ -49,6 +51,9 @@ public class Complex {
         return new Complex(x.real, -x.im);
     }
 
+    public Complex div(double other) {
+        return new Complex(this.real/other, this.im/other);
+    }
     public Complex div(Complex other) {
         Complex num = this.mult(Complex.conjugate(other));
         double den = Math.pow(other.modulus, 2);

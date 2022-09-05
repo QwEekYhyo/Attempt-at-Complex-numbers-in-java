@@ -12,5 +12,8 @@ public class Main {
 
         Complex nb5 = Complex.conjugate(nb);
         System.out.println(nb5);
+
+        Complex nb6 = Complex.castToComplex(9);
+        System.out.println(nb6.add(nb));
     }
 }
