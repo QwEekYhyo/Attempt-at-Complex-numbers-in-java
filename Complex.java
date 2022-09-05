@@ -3,11 +3,11 @@ import java.lang.Math;
 
 public class Complex {
 
-    public int real;
-    public int im;
+    public double real;
+    public double im;
     public double modulus;
 
-    public Complex(int x, int y) {
+    public Complex(double x, double y) {
         this.real = x;
         this.im = y;
         this.modulus = Math.pow(Math.pow(this.real, 2) + Math.pow(this.im, 2), 0.5);
@@ -24,19 +24,19 @@ public class Complex {
     }
 
     public Complex add(Complex other) {
-        int resultReal = this.real + other.real;
-        int resultIm = this.im + other.im;
+        double resultReal = this.real + other.real;
+        double resultIm = this.im + other.im;
         return new Complex(resultReal, resultIm);
     }
 
     public Complex mult(int other) {
-        int resultReal = this.real * other;
-        int resultIm = this.im * other;
+        double resultReal = this.real * other;
+        double resultIm = this.im * other;
         return new Complex(resultReal, resultIm);
     }
     public Complex mult(Complex other) {
-        int resultReal = this.real * other.real - this.im * other.im;
-        int resultIm = this.real * other.im + this.im * other.real;
+        double resultReal = this.real * other.real - this.im * other.im;
+        double resultIm = this.real * other.im + this.im * other.real;
         return new Complex(resultReal, resultIm);
     }
 
@@ -49,12 +49,9 @@ public class Complex {
         return new Complex(x.real, -x.im);
     }
 
-// because I suck and I did this complex class with integers, I cannot use
-// doubles, so I decided to round the div result which means it is very very
-// not accurate at all 
     public Complex div(Complex other) {
         Complex num = this.mult(Complex.conjugate(other));
-        int den = (int) Math.round(Math.pow(other.modulus, 2));
+        double den = Math.pow(other.modulus, 2);
         return new Complex(num.real/den, num.im/den);
     }
 }
